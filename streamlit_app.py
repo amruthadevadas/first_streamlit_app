@@ -1,7 +1,7 @@
-import streamlit
-import snowflake.connector
-import pandas
-import requests
+# import streamlit
+# import snowflake.connector
+# import pandas
+# import requests
 from urllib.error import URLError
 streamlit.title('My Moms New Healthy Diner')
 streamlit.header('Breakfast Menu')
@@ -34,7 +34,7 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
 streamlit.error()
-# streamlit.stop()
+streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
